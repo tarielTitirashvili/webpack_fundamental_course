@@ -1,6 +1,7 @@
 import { Configuration } from "webpack"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import TBuildParams from "./types/types"
 
 export default function buildPlugins(
@@ -23,6 +24,8 @@ export default function buildPlugins(
       })
     )
   }
-
+  if (options.analyzer){
+    plugins.push(new BundleAnalyzerPlugin())
+  }
   return plugins
 }

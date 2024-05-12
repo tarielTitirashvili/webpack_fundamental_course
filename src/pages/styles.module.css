@@ -1,0 +1,12 @@
+.text{
+  color: darkred;
+}
+.assetsContainer{
+  display: flex;
+  max-width: 100%;
+}
+.imageStyles{
+  display: flex;
+  max-width: 15vw;
+  object-fit: cover;
+}
