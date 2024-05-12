@@ -35,7 +35,14 @@ export default function buildLoaders(
 
   const tsLoader = {
     test: /\.tsx?$/,
-    use: "ts-loader",
+    use: [
+      {
+        loader: "ts-loader",
+        options: {
+          transpileOnly: true
+        }
+      }
+    ],
     exclude: /node_modules/,
   }
   return [assetLoader, scssLoader, tsLoader]

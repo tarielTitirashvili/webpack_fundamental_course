@@ -5,7 +5,7 @@ export default function buildResolvers(
   options: TBuildParams
 ): Configuration["resolve"] {
   return {
-    extensions: [".tsx", ".ts", ".js", "png", "svg", "jpg", "jpeg", "gif"],
+    extensions: [".tsx", ".ts", ".js"],
     alias: {
       "@": options.paths.src,
       assets: options.paths.assets,

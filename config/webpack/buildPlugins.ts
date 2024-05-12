@@ -3,6 +3,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import TBuildParams from "./types/types"
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+
 
 export default function buildPlugins(
   options: TBuildParams
@@ -14,6 +16,7 @@ export default function buildPlugins(
       // path to our html file without that plugin will create new html file
       template: options.paths.html, // path.join(__dirname, "public/index.html"),
     }),
+    new ForkTsCheckerWebpackPlugin()
   ]
 
   if (isProd) {

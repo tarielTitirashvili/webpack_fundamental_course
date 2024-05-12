@@ -15,6 +15,9 @@
       "assets/*": ["./src/assets/*"]
     }
   },
+  "watchOptions": {
+    "excludeDirectories": ["**/node_modules"]
+  },
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
