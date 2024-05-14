@@ -1,26 +1,26 @@
-import TBuildParams from "./types/types"
-import { ModuleOptions } from "webpack"
-import MiniCssExtractPlugin from "mini-css-extract-plugin"
+import TBuildParams from './types/types'
+import { ModuleOptions } from 'webpack'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export default function buildLoaders(
   options: TBuildParams
-): ModuleOptions["rules"] {
-  const isDev = options.mode === "development"
+): ModuleOptions['rules'] {
+  const isDev = options.mode === 'development'
 
   const assetLoader = {
     test: /\.(png|svg|jpg|jpeg|gif)$/i,
     use: [
       {
-        loader: "file-loader",
+        loader: 'file-loader',
       },
     ],
   }
 
   const cssLoaderWithModules = {
-    loader: "css-loader",
+    loader: 'css-loader',
     options: {
       modules: {
-        localIdentName: isDev ? "[path][name]__[local]" : "[hash:base64:8]",
+        localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
       },
     },
   }
@@ -28,7 +28,7 @@ export default function buildLoaders(
   const scssLoader = {
     test: /\.css$/,
     use: [
-      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       cssLoaderWithModules,
     ],
   }
@@ -37,11 +37,11 @@ export default function buildLoaders(
     test: /\.tsx?$/,
     use: [
       {
-        loader: "ts-loader",
+        loader: 'ts-loader',
         options: {
-          transpileOnly: true
-        }
-      }
+          transpileOnly: true,
+        },
+      },
     ],
     exclude: /node_modules/,
   }

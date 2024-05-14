@@ -4,9 +4,10 @@ interface TBuildPaths {
   output: string
   src: string
   assets: string
+  public: string
 }
 
-type TMode = "production" | "development"
+type TMode = 'production' | 'development'
 
 interface TBuildParams {
   port: number

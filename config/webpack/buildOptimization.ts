@@ -1,13 +1,13 @@
-import { Configuration } from "webpack"
-import CssMinimizerPlugin from "css-minimizer-webpack-plugin"
+import { Configuration } from 'webpack'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 
-export default function buildOptimization(): Configuration["optimization"] {
+export default function buildOptimization(): Configuration['optimization'] {
   return {
     minimizer: [
       new CssMinimizerPlugin({
         minimizerOptions: {
           preset: [
-            "default",
+            'default',
             {
               discardComments: { removeAll: true },
             },

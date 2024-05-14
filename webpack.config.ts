@@ -1,8 +1,8 @@
-import path from "path"
-import { Configuration } from "webpack"
-import buildWebpackConfig from "./config/webpack"
+import path from 'path'
+import { Configuration } from 'webpack'
+import buildWebpackConfig from './config/webpack'
 
-type TMode = "production" | "development"
+type TMode = 'production' | 'development'
 
 interface IEnvironmentVariables {
   mode: TMode
@@ -17,11 +17,12 @@ export default (env: IEnvironmentVariables): Configuration => {
     port: env.port,
     analyzer: env.analyzer,
     paths: {
-      entry: path.join(__dirname, "src", "index.tsx"),
-      html: path.join(__dirname, "public", "index.html"),
-      output: path.join(__dirname, "build"),
-      src: path.join(__dirname, "src"),
-      assets: path.join(__dirname, "src", "assets"),
+      entry: path.join(__dirname, 'src', 'index.tsx'),
+      html: path.join(__dirname, 'public', 'index.html'),
+      output: path.join(__dirname, 'build'),
+      src: path.join(__dirname, 'src'),
+      assets: path.join(__dirname, 'src', 'assets'),
+      public: path.join(__dirname, 'public'),
     },
   })
 }

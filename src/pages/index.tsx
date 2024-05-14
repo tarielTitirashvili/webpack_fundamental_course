@@ -6,7 +6,7 @@ import Microscope from "assets/microscope.svg"
 
 type Props = {}
 
-function MainPage({}: Props) {
+function MainPage({ }: Props) {
   const [counter, setCounter] = useState<number>(0)
 
   return (

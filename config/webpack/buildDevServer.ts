@@ -1,5 +1,5 @@
-import type { Configuration as DevServerConfiguration } from "webpack-dev-server"
-import TBuildParams from "./types/types"
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+import TBuildParams from './types/types'
 
 export default function buildDevServer(
   options: TBuildParams
