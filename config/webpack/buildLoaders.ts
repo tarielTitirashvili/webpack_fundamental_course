@@ -33,17 +33,42 @@ export default function buildLoaders(
     ],
   }
 
-  const tsLoader = {
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   use: [
+  //     {
+  //       loader: 'ts-loader',
+  //       options: {
+  //         transpileOnly: true,
+  //       },
+  //     },
+  //   ],
+  //   exclude: /node_modules/,
+  // }
+  const babelLoader = {
     test: /\.tsx?$/,
-    use: [
-      {
-        loader: 'ts-loader',
-        options: {
-          transpileOnly: true,
-        },
-      },
-    ],
     exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: [
+          '@babel/preset-env',
+          '@babel/preset-typescript',
+          [
+            '@babel/preset-react',
+            {
+              runtime: isDev ? 'automatic' : 'classic',
+            },
+          ],
+        ],
+      },
+    },
   }
-  return [assetLoader, scssLoader, tsLoader]
+
+  return [
+    assetLoader,
+    scssLoader,
+    babelLoader,
+    // tsLoader
+  ]
 }
