@@ -1,6 +1,7 @@
 import TBuildParams from './types/types'
 import { ModuleOptions } from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import buildBabelLoader from './babel/buildBabelLoader'
 
 export default function buildLoaders(
   options: TBuildParams
@@ -45,30 +46,10 @@ export default function buildLoaders(
   //   ],
   //   exclude: /node_modules/,
   // }
-  const babelLoader = {
-    test: /\.tsx?$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: [
-          '@babel/preset-env',
-          '@babel/preset-typescript',
-          [
-            '@babel/preset-react',
-            {
-              runtime: isDev ? 'automatic' : 'classic',
-            },
-          ],
-        ],
-      },
-    },
-  }
 
   return [
     assetLoader,
     scssLoader,
-    babelLoader,
-    // tsLoader
+    buildBabelLoader(options)
   ]
 }
